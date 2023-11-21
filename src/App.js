@@ -1,23 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Routes, Route, NavLink } from "react-router-dom";
+import Dogs from "./Components/Dogs";
+import Home from "./Components/Home";
+import Pets from "./Components/Pets";
+import Cats from "./Components/Cats";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Multipage aplikacija</h1>
+
+      <nav>
+        <ul>
+          <li>
+            <NavLink to="/">Home</NavLink>
+          </li>
+          <br />
+          <li>
+            <NavLink to="/pets">Pets</NavLink>
+          </li>
+          <br />
+          <li>
+            <NavLink to="/dogs">Dogs</NavLink>
+          </li>
+          <br />
+          <li>
+            <NavLink to="/cats">Cats</NavLink>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/dogs" element={<Dogs />} />
+        <Route path="/pets" element={<Pets />} />
+        <Route path="/cats" element={<Cats />} />
+      </Routes>
     </div>
   );
 }
